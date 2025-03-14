@@ -1,0 +1,265 @@
+/* Para Eliminar margenes y padding */
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.formato {
+    background-color: rgba(0, 123, 255, 0.1); /* Color de fondo ligero */ /* Texto en color azul moderno */
+    padding: 8px 12px; /* Espaciado interno */
+    border: 1px solid #e73c7e; /* Borde azul fino */
+    border-radius: 12px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+
+/* Estilos para la animación de fondo */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.id-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+    margin: 50px auto; /* Centrar verticalmente */
+}
+
+.header {
+    background-color: #23a6d5;/* #1a73e8; */
+    color: white;
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.photo {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 150px; /* Ajusta según sea necesario */
+}
+
+.animated-photo {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.animated-photo img {
+    width: 100%;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Ocultar todas las diapositivas inicialmente */
+    transition: opacity 1s ease; /* Transición de opacidad */
+}
+
+.swiper-slide-active {
+    opacity: 1; /* Mostrar solo la diapositiva activa */
+}
+
+.swiper-slide img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 20px;
+    transition: transform 0.6s ease;
+}
+
+.swiper-slide img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Oculta las bullets por defecto */
+.swiper-pagination {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Oculta las bullets cuando el puntero esté sobre la imagen */
+.swiper-slide:hover ~ .swiper-pagination {
+    opacity: 0; /* Hace que las bullets desaparezcan */
+}
+
+/* Estilo general para las pelotitas */
+.swiper-container .swiper-pagination-bullet {
+    background-color: #23a6d5 !important; /* Cambia el color de las bullets */
+    width: 6px; /* Ajusta el tamaño */
+    height: 6px;
+    opacity: 1; /* Asegúrate de que sean visibles */
+    margin: 3px; /* Espaciado entre bullets */
+}
+
+/* Estilo para la bullet activa */
+.swiper-container .swiper-pagination-bullet-active {
+    background-color: #e73c7e !important; /* Cambia el color de la bullet activa */
+    transform: scale(1.2); /* Destaca la bullet activa */
+    transition: transform 0.3s, background-color 0.3s; /* Animación suave */
+}
+
+/* Detalles */
+.details p {
+    margin: 5px 0;
+    text-align: left;
+    font-size: 16px;
+}
+
+.details p::before {
+    content: "• "; /* Añadir un punto antes de cada detalle */
+    color: #e73c7e; /* #1a73e8; */
+}
+
+/* Botones de wsp y ubicacion */
+.botones {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        gap: 20px; /* Espaciado entre botones */
+        margin-top: 20px; /* Espacio superior si es necesario */
+}
+
+.botones a{
+    text-decoration: none;
+}
+
+/* Animacion boton wsp */
+.btnWsp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Tamaño del botón */
+    height: 40px; /* Igual al ancho para hacerlo circular */
+    background-color: #e73c7e; /* #25D366; Color verde de WhatsApp */
+    color: white; /* Color del ícono */
+    border: none;
+    border-radius: 50%; /* Hace el botón circular */
+    font-size: 18px; /* Tamaño del ícono */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+  
+.btnWsp:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btnWsp:active {
+    transform: scale(0.95); /* Hace que el botón se encoja al hacer clic */
+}
+  
+/* Animacion boton ubicacion */
+.btnUbicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Tamaño del botón */
+    height: 40px; /* Igual al ancho para hacerlo circular */
+    background-color: #23a6d5;  /* #fc3030; /* Color verde de WhatsApp */
+    color: white; /* Color del ícono */
+    border: none;
+    border-radius: 50%; /* Hace el botón circular */
+    font-size: 18px; /* Tamaño del ícono */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+  
+.btnUbicacion:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btnUbicacion:active {
+    transform: scale(0.95); /* Hace que el botón se encoja al hacer clic */
+}
+
+/* Estilos para el footer animado */
+.footer-animation {
+    background: linear-gradient(-45deg, #000000, #e73c7e, #23a6d5, #000000);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    z-index: 1; /* Asegura que esté delante del contenido */
+}
+.footer-animation a{
+    text-decoration: none;
+    color: white;
+}
+.footer-animation a:hover{
+    color: #070505;
+    
+}
+
+/* Redes sociales */
+.redes-sociales {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 15px; /* Espacio entre iconos */
+    margin-top: 15px; /* Asegura separación con el footer */
+}
+
+.redes-sociales a {
+    color: white; /* Haz que el color contraste con el fondo */
+    font-size: 24px; /* Aumenta el tamaño de los íconos */
+    text-decoration: none; /* Elimina subrayado en los enlaces */
+    transition: transform 0.3s, color 0.3s; /* Efectos */
+}
+
+.redes-sociales a:hover {
+    transform: scale(1.2); /* Efecto de zoom */
+    color: #000000; /* Cambia el color al pasar el cursor */
+}
+
